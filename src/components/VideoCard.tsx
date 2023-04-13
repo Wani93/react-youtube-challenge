@@ -1,20 +1,28 @@
+import formatAgo from '@/util/date';
+
 const VideoCard = ({ item }: { item: any }) => {
   const {
     snippet: { id, thumbnails, title, channelTitle, publishedAt },
   } = item;
 
   return (
-    <div>
-      <img className="rounded-lg" src={thumbnails.high.url} />
-      <h1
+    <li>
+      <img
+        className="w-full rounded-lg"
+        src={thumbnails.medium.url}
+        alt={title}
+      />
+      <p
         title={title}
-        className="text-lg text-slate-50 font-bold whitespace-nowrap overflow-hidden text-ellipsis"
+        className="text-lg text-slate-50 font-bold whitespace-nowrap overflow-hidden text-ellipsis my-1"
       >
         {title}
-      </h1>
-      <h2 className="text-sm text-slate-300">{channelTitle}</h2>
-      <h3 className="text-xs text-slate-300">{publishedAt}</h3>
-    </div>
+      </p>
+      <p className="text-sm text-slate-300 opacity-80">{channelTitle}</p>
+      <p className="text-xs text-slate-300 opacity-80">
+        {formatAgo(publishedAt, 'ko')}
+      </p>
+    </li>
   );
 };
 
