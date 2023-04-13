@@ -1,9 +1,35 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-const search = async (keyword: string) => {
-  const url = keyword ? '/data/search.json' : '/data/trend.json';
+export default class Youtube {
+  httpClient: AxiosInstance;
 
-  return axios.get(url).then((res) => res.data.items);
-};
+  constructor() {
+    this.httpClient = axios.create({
+      baseURL: 'https://youtube.googleapis.com/youtube/v3',
+      params: { key: import.meta.env.VITE_YOUTUBE_API_KEY },
+    });
+  }
 
-export default search;
+  async search(keyword: string) {
+    return keyword ? this.#searchByKeword(keyword) : this.#mostPopular();
+  }
+
+  async #searchByKeword(keyword: string) {
+    return this.httpClient
+      .get('/search', {
+        params: { part: 'snippet', maxResults: 25, type: 'video', q: keyword },
+      })
+      .then((res) => res.data.items)
+      .then((items) =>
+        items.map((item: any) => ({ ...item, id: item.id.videoId })),
+      );
+  }
+
+  async #mostPopular() {
+    return this.httpClient
+      .get('/videos', {
+        params: { part: 'snippet', maxResults: 25, chart: 'mostPopular' },
+      })
+      .then((res) => res.data.items);
+  }
+}
