@@ -1,6 +1,7 @@
 import VideoCard from '@/components/VideoCard';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Videos = () => {
   const { keyword } = useParams();
@@ -11,9 +12,7 @@ const Videos = () => {
   } = useQuery(['search', keyword], () => {
     const url = keyword ? '/data/search.json' : '/data/trend.json';
 
-    return fetch(url)
-      .then((res) => res.json())
-      .then((data) => data.items);
+    return axios.get(url).then((res) => res.data.items);
   });
 
   return (
