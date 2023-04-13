@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full flex center h-10 mt-2">
+    <header className="w-full flex center h-10 my-4">
       <Link to="/" className="flex items-center cursor-pointer mr-5">
         <AiFillYoutube className="text-4xl text-brand" />
         <h1 className="font-bold ml-2 text-3xl">Youtube</h1>
