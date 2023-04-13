@@ -1,18 +1,19 @@
 import VideoCard from '@/components/VideoCard';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import FakeYoutube from '@/api/fakeYoutube';
 
 const Videos = () => {
+  const fakeYoutube = new FakeYoutube();
   const { keyword } = useParams();
   const {
     isLoading,
     error,
     data: videos,
-  } = useQuery(['search', keyword], () => {
-    const url = keyword ? '/data/search.json' : '/data/trend.json';
+  } = useQuery(['videos', keyword], () => {
+    const youtube = new FakeYoutube();
 
-    return axios.get(url).then((res) => res.data.items);
+    return youtube.search(keyword || '');
   });
 
   return (
@@ -20,9 +21,7 @@ const Videos = () => {
       {isLoading && 'loading...'}
       {error && error}
       {videos &&
-        videos.map((item: any) => (
-          <VideoCard key={item.id.videoId || item.id} item={item} />
-        ))}
+        videos.map((item: any) => <VideoCard key={item.id} item={item} />)}
     </div>
   );
 };
