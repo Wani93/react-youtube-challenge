@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { IYoutubeClient } from './YoutubeClient';
 
 export default class FakeYoutube implements IYoutubeClient {
@@ -8,5 +8,9 @@ export default class FakeYoutube implements IYoutubeClient {
 
   async videos() {
     return axios.get('/data/trend.json');
+  }
+
+  async channels() {
+    return axios.get('/data/channels.json');
   }
 }

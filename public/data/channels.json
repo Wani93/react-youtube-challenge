@@ -1,0 +1,43 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "FT_8alnVFz8rM2ZFh0NoIlj-qeo",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "VnH0oj8vuifp3t5vAGEagllgtns",
+      "id": "UC1l5wmXjrQ1COW8_kDtNtiQ",
+      "snippet": {
+        "title": "우주최강올라프",
+        "description": "이 시대 진정한 사나이 그 이름 우주최강올라프\n\n개인 문의 - chanwoo6195@naver.com\n비즈니스 문의 - ad@lolq.co.kr\n",
+        "customUrl": "@spacebest1",
+        "publishedAt": "2017-11-11T11:19:42Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AGIKgqPiDhHMN5XxnUjsQvxlKYXoqUJhcnuxME5A7GnM=s88-c-k-c0x00ffffff-no-rj",
+            "width": 88,
+            "height": 88
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AGIKgqPiDhHMN5XxnUjsQvxlKYXoqUJhcnuxME5A7GnM=s240-c-k-c0x00ffffff-no-rj",
+            "width": 240,
+            "height": 240
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AGIKgqPiDhHMN5XxnUjsQvxlKYXoqUJhcnuxME5A7GnM=s800-c-k-c0x00ffffff-no-rj",
+            "width": 800,
+            "height": 800
+          }
+        },
+        "localized": {
+          "title": "우주최강올라프",
+          "description": "이 시대 진정한 사나이 그 이름 우주최강올라프\n\n개인 문의 - chanwoo6195@naver.com\n비즈니스 문의 - ad@lolq.co.kr\n"
+        },
+        "country": "KR"
+      }
+    }
+  ]
+}

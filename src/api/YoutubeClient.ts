@@ -3,6 +3,7 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
 export interface IYoutubeClient {
   search: (params: any) => Promise<AxiosResponse>;
   videos: (params: any) => Promise<AxiosResponse>;
+  channels: (params: any) => Promise<AxiosResponse>;
 }
 
 export default class YoutubeClient implements IYoutubeClient {
@@ -21,5 +22,9 @@ export default class YoutubeClient implements IYoutubeClient {
 
   async videos(params: any) {
     return this.apiClient.get('/videos', params);
+  }
+
+  async channels(params: any) {
+    return this.apiClient.get('/channels', params);
   }
 }
