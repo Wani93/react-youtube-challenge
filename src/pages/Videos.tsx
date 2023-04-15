@@ -10,17 +10,26 @@ const Videos = () => {
     isLoading,
     error,
     data: videos,
-  } = useQuery(['videos', keyword], () => {
-    return youtube.search(keyword || '');
-  });
+  } = useQuery(
+    ['videos', keyword],
+    () => {
+      return youtube.search(keyword || '');
+    },
+    { staleTime: 1000 * 60 },
+  );
 
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <>
       {isLoading && 'loading...'}
       {error && error}
-      {videos &&
-        videos.map((item: any) => <VideoCard key={item.id} item={item} />)}
-    </ul>
+      {videos && (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {videos.map((item: any) => (
+            <VideoCard key={item.id} item={item} />
+          ))}
+        </ul>
+      )}
+    </>
   );
 };
 
