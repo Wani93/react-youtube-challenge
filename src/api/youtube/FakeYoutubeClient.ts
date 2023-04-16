@@ -1,5 +1,5 @@
-import axios, { AxiosResponse } from 'axios';
-import { IYoutubeClient } from './YoutubeClient';
+import axios from 'axios';
+import { IYoutubeClient } from './types';
 
 export default class FakeYoutube implements IYoutubeClient {
   async search() {

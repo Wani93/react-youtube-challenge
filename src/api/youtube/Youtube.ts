@@ -1,4 +1,4 @@
-import { IYoutubeClient } from './YoutubeClient';
+import { IYoutubeClient } from './types';
 
 type Item = {
   kind: 'youtube#searchResult';

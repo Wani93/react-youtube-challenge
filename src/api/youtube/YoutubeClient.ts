@@ -1,10 +1,6 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-export interface IYoutubeClient {
-  search: (params: any) => Promise<AxiosResponse>;
-  videos: (params: any) => Promise<AxiosResponse>;
-  channels: (params: any) => Promise<AxiosResponse>;
-}
+import { IYoutubeClient } from './types';
 
 export default class YoutubeClient implements IYoutubeClient {
   apiClient: AxiosInstance;
