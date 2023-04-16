@@ -20,7 +20,7 @@ const VideoDetail = () => {
           typeof="text/html"
           width="100%"
           height="640"
-          src={`http://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=http://example.com`}
+          src={`https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=http://example.com`}
         />
         <div className="p-8">
           <h2 className="text-xl font-bold">{title}</h2>
