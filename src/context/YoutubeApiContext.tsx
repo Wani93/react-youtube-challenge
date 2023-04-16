@@ -1,5 +1,5 @@
 import YoutubeClient from '@/api/YoutubeClient';
-import Youtube from '@/api/Youtube';
+import Youtube from '../api/Youtube';
 import { ReactNode, createContext, useContext } from 'react';
 
 const youtubeClient = new YoutubeClient();
